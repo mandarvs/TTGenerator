@@ -246,3 +246,54 @@ python -m grpc_tools.protoc \
   src/models/telemetry.proto
 ```
 This updates the compiled classes in `src/models/telemetry_pb2.py`.
+
+---
+
+## 📊 Telemetry Attributes Reference
+
+The simulator generates a comprehensive set of signals for each telemetry snapshot:
+
+### Core Identifiers
+| Attribute | Type | Description |
+| :--- | :---: | :--- |
+| `event_ts` | `str` | ISO 8601 timestamp of the event. |
+| `customer_id` | `str` | Unique identifier for the customer. |
+| `vehicle_id` | `str` | Unique Vehicle Identification Number (VIN). |
+| `device_id` | `str` | Unique identifier for the telematics device. |
+
+### GPS Signals
+| Attribute | Type | Description |
+| :--- | :---: | :--- |
+| `latitude` | `float` | GPS Latitude in decimal degrees. |
+| `longitude` | `float` | GPS Longitude in decimal degrees. |
+| `altitude_m` | `float` | GPS Altitude in meters. |
+| `gps_speed_kph` | `float` | Vehicle speed derived from GPS (kph). |
+| `heading_deg` | `float` | Compass heading/bearing (0-359 degrees). |
+| `hdop` | `float` | Horizontal Dilution of Precision (GPS accuracy). |
+| `satellite_count` | `int` | Number of GPS satellites in view. |
+
+### Vehicle Bus (J1939) Signals
+| Attribute | Type | Description |
+| :--- | :---: | :--- |
+| `vehicle_speed_kph` | `float` | Speed reported by the vehicle's wheel sensors (kph). |
+| `engine_rpm` | `float` | Engine revolutions per minute. |
+| `accelerator_pedal_pct` | `float` | Throttle position percentage (0-100%). |
+| `engine_load_pct` | `float` | Current engine load as a percentage. |
+| `fuel_rate_lph` | `float` | Instantaneous fuel consumption (liters per hour). |
+| `total_fuel_used_l` | `float` | Cumulative fuel consumed during the trip. |
+| `fuel_level_pct` | `float` | Fuel tank level percentage (0-100%). |
+| `coolant_temp_c` | `float` | Engine coolant temperature in Celsius. |
+| `oil_temp_c` | `float` | Engine oil temperature in Celsius. |
+| `battery_voltage_v` | `float` | Vehicle battery voltage. |
+| `engine_hours` | `float` | Cumulative engine run time in hours. |
+| `odometer_km` | `int` | Cumulative distance traveled in kilometers. |
+| `gear_selected` | `int` | Current transmission gear. |
+| `ignition_status` | `int` | Ignition state (1: On, 0: Off). |
+
+### Device & Health Signals
+| Attribute | Type | Description |
+| :--- | :---: | :--- |
+| `device_temp_c` | `float` | Internal temperature of the telematics hardware. |
+| `gsm_signal_dbm` | `int` | Cellular signal strength in dBm. |
+| `can_bus_health` | `int` | Diagnostic bit for vehicle bus connectivity. |
+| `tamper_alert` | `int` | Boolean flag for device tampering detection. |
