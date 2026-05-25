@@ -123,17 +123,26 @@ The primary driver is configured entirely through command-line arguments on `mai
 | `--customer` | `str` | `CUST001` | Comma-separated customer IDs (assigns VINs round-robin). |
 | `--prefix` | `str` | `V` | Prefix of the generated 17-character VIN. |
 | `--duration` | `int` | `None` | Max duration (seconds) before starting a graceful shutdown. |
+| `--batch-size` | `int` | `1` | Number of messages to aggregate before reporting. |
+| `--batch-duration` | `int` | `1` | Maximum duration (seconds) before reporting aggregated messages. |
 | `--file` | `str` | `None` | Output file path to write results locally. |
 | `--file-format` | `str` | `csv` | Format for local file sink (`csv`, `json`, `proto`). |
 | `--pubsub-project` | `str` | `None` | Target GCP Project ID for the Pub/Sub Sink. |
 | `--pubsub-topic` | `str` | `None` | Target GCP Topic ID for the Pub/Sub Sink. |
 | `--pubsub-format` | `str` | `proto` | Payload format for Pub/Sub (`csv`, `json`, `proto`). |
+| `--pubsub-metadata` | `list` | `customer_id` | Payload fields to include as PubSub message attributes. |
+| `--kafka-bootstrap-servers` | `str` | `None` | Kafka bootstrap servers (e.g., localhost:9092). |
+| `--kafka-topic` | `str` | `None` | Kafka topic ID. |
+| `--kafka-format` | `str` | `json` | Payload format for Kafka (`csv`, `json`, `proto`). |
+| `--kafka-metadata` | `list` | `customer_id` | Payload fields to include as Kafka message headers. |
 | `--mqtt-host` | `str` | `None` | MQTT broker host address. |
 | `--mqtt-port` | `int` | `1883` | MQTT broker connection port. |
 | `--mqtt-topic` | `str` | `None` | MQTT target topic name. |
 | `--mqtt-format` | `str` | `json` | Payload format for MQTT (`csv`, `json`, `proto`). |
+| `--mqtt-metadata` | `list` | `customer_id` | Payload fields to include as MQTT v5 User Properties. |
 | `--behavior-dist` | `list` | `40 15 15 15 15` | Percentage distribution of presets (Standard, Fast, Faulty, Empty, Loaded). |
-| `--start-time` | `str` | `None` | ISO 8601 string representing base clock starting timestamp. |
+| `--start-time` | `str` | `Current UTC` | ISO 8601 string representing base clock starting timestamp. |
+
 
 ---
 
