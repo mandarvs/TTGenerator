@@ -123,8 +123,6 @@ The primary driver is configured entirely through command-line arguments on `mai
 | `--customer` | `str` | `CUST001` | Comma-separated customer IDs (assigns VINs round-robin). |
 | `--prefix` | `str` | `V` | Prefix of the generated 17-character VIN. |
 | `--duration` | `int` | `None` | Max duration (seconds) before starting a graceful shutdown. |
-| `--batch-size` | `int` | `1` | Number of messages to aggregate before reporting. |
-| `--batch-duration` | `int` | `1` | Maximum duration (seconds) before reporting aggregated messages. |
 | `--file` | `str` | `None` | Output file path to write results locally. |
 | `--file-format` | `str` | `csv` | Format for local file sink (`csv`, `json`, `proto`). |
 | `--pubsub-project` | `str` | `None` | Target GCP Project ID for the Pub/Sub Sink. |
@@ -143,10 +141,38 @@ The primary driver is configured entirely through command-line arguments on `mai
 | `--behavior-dist` | `list` | `40 15 15 15 15` | Percentage distribution of presets (Standard, Fast, Faulty, Empty, Loaded). |
 | `--start-time` | `str` | `Current UTC` | ISO 8601 string representing base clock starting timestamp. |
 
+---
+
+## 🚀 Example Usage Scenarios
+
+### 1. Local Data Generation (CSV)
+Generate a 1-minute simulation for 5 trucks and save the results to a local CSV file:
+```bash
+python main.py --count 5 --duration 60 --file telemetry.csv --file-format csv
+```
+
+### 2. Real-time Cloud Streaming (JSON to Pub/Sub)
+Stream real-time JSON telemetry from 100 trucks directly to a Google Cloud Pub/Sub topic:
+```bash
+python main.py --count 100 --pubsub-project <PROJECT_ID> --pubsub-topic telemetry-raw --pubsub-format json
+```
+
+### 3. MQTT Stream (Protobuf)
+Simulate a fleet streaming compact Protobuf binary data to a local MQTT broker:
+```bash
+python main.py --count 10 --mqtt-host localhost --mqtt-topic trucks/proto --mqtt-format proto
+```
+
+### 4. Historical Backfill Simulation
+Simulate a 1-hour "historical" journey starting from a specific date in the past, saving to a JSON file:
+```bash
+python main.py --count 2 --start-time 2026-05-01T00:00:00Z --duration 3600 --file backfill.json --file-format json
+```
 
 ---
 
 ## 🔌 Running Auxiliary Components
+
 
 ### 1. Local MQTT v5 Broker Stub
 For rapid testing of the MQTT sink without spinning up an enterprise Mosquitto broker, utilize the built-in, lightweight async MQTT v5 server stub:
