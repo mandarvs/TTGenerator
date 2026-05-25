@@ -40,10 +40,11 @@ graph TD
 - **Physical Vehicle Modeling:** Fully simulates throttle percentage, engine RPM, coolant/oil temperatures, transmission gear shifting, and fluid dynamics.
 - **Realistic Route Progression:** Calculates geodetic compass bearings and travels along Great-Circle routes using the **Haversine formula**.
 - **Flexible Behavior Presets:**
-  - `Standard`: Consistent, rule-abiding driving.
-  - `Fast`: High-speed, aggressive acceleration.
-  - `Faulty`: Low velocities, breakdown simulation (stops halfway), and **intermittent GPS drift fault injection** (100–200km off-course).
-  - `Empty` & `Loaded`: Mass adjustments that dynamically scale physical engine acceleration profiles.
+  - `Standard`: Routine operations with steady acceleration and a conservative 50 kph top speed.
+  - `Fast`: High-speed transport profile with aggressive acceleration and a 100 kph top speed.
+  - `Faulty`: Low-velocity (30 kph) simulation featuring mid-trip engine breakdowns and intermittent 100-200km GPS drift anomalies.
+  - `Empty`: Light-weight transit profile with very rapid acceleration (15s to top speed) reaching 100 kph.
+  - `Loaded`: Heavy-haul simulation with slow, mass-weighted acceleration (90s to top speed) capped at 50 kph.
 - **Pluggable Architecture:** Support for multiple formats (CSV, JSON, Protobuf) and stream targets (MQTT, Apache Kafka, Google Cloud Pub/Sub, File System).
 
 ---
