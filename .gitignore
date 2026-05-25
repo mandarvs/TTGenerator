@@ -60,3 +60,8 @@ MANIFEST
 *~
 .DS_Store
 Thumbs.db
+
+# Gemini CLI
+gemini.md
+.gemini/
+.antigravitycli/
