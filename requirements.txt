@@ -1,0 +1,7 @@
+aiofiles
+google-cloud-pubsub
+grpcio-tools
+confluent-kafka
+aiomqtt
+apache-beam[gcp]
+google-cloud-bigtable

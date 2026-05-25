@@ -1,0 +1,62 @@
+# ==============================================================================
+# TTGenerator .gitignore
+# ==============================================================================
+
+# Private Reference Notes (As requested: entirely local & ignored)
+src/notes/
+
+# TTGenerator Local Outputs, Logs & Test Data
+mqtt_stub.log
+telemetry_test.bin
+telemetry_test.json
+*.parquet
+*.csv
+!loc_master.csv
+
+# Python environment & dependencies
+.venv/
+venv/
+env/
+ENV/
+bin/
+lib/
+lib64/
+include/
+share/
+pyvenv.cfg
+pip-selfcheck.json
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter Notebooks checkpoints (if any are used locally)
+.ipynb_checkpoints
+
+# IDEs & Editor configuration
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

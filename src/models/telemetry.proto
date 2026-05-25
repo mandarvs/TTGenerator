@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package telemetry;
+
+message TelemetrySignal {
+    // Core identifiers
+    string event_ts = 1;
+    string customer_id = 2;
+    string vehicle_id = 3;
+    string device_id = 4;
+
+    // GPS Signals
+    double latitude = 5;
+    double longitude = 6;
+    double altitude_m = 7;
+    double gps_speed_kph = 8;
+    double heading_deg = 9;
+    double hdop = 10;
+    int32 satellite_count = 11;
+    int32 fix_quality = 12;
+
+    // IMU signals
+    float accel_x_g = 13;
+    float accel_y_g = 14;
+    float accel_z_g = 15;
+    float gyro_x_dps = 16;
+    float gyro_y_dps = 17;
+    float gyro_z_dps = 18;
+
+    // J1939 / vehicle bus signals
+    float vehicle_speed_kph = 19;
+    float engine_rpm = 20;
+    float accelerator_pedal_pct = 21;
+    float engine_load_pct = 22;
+    float engine_torque_pct = 23;
+    float fuel_rate_lph = 24;
+    float total_fuel_used_l = 25;
+    float fuel_level_pct = 26;
+    float coolant_temp_c = 27;
+    float oil_temp_c = 28;
+    float oil_pressure_kpa = 29;
+    float intake_manifold_pressure_kpa = 30;
+    float battery_voltage_v = 31;
+    float engine_hours = 32;
+    int32 odometer_km = 33;
+    int32 gear_selected = 34;
+    int32 brake_switch = 35;
+    int32 clutch_switch = 36;
+    int32 pto_status = 37;
+    int32 active_dtc_count = 38;
+
+    // Telematics device parameters
+    int32 ignition_status = 39;
+    float external_power_v = 40;
+    float backup_battery_v = 41;
+    float device_temp_c = 42;
+    int32 gsm_signal_dbm = 43;
+    string network_type = 44;
+    int32 gnss_fix_status = 45;
+    int32 can_bus_health = 46;
+    int32 storage_queue_depth = 47;
+    int32 tamper_alert = 48;
+}

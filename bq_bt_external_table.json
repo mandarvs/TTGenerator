@@ -1,0 +1,88 @@
+{
+  "sourceFormat": "BIGTABLE",
+  "sourceUris": [
+    "https://googleapis.com/bigtable/projects/trucktelemetry-495304/instances/trucktelemetryraw/tables/telemetry"
+  ],
+  "bigtableOptions": {
+    "readRowkeyAsString": true,
+    "columnFamilies": [
+      {
+        "familyId": "gps",
+        "columns": [
+          {"qualifierString": "latitude", "type": "STRING"},
+          {"qualifierString": "longitude", "type": "STRING"},
+          {"qualifierString": "altitude_m", "type": "STRING"},
+          {"qualifierString": "gps_speed_kph", "type": "STRING"},
+          {"qualifierString": "heading_deg", "type": "STRING"},
+          {"qualifierString": "hdop", "type": "STRING"},
+          {"qualifierString": "satellite_count", "type": "STRING"},
+          {"qualifierString": "fix_quality", "type": "STRING"}
+        ]
+      },
+      {
+        "familyId": "imu",
+        "columns": [
+          {"qualifierString": "accel_x_g", "type": "STRING"},
+          {"qualifierString": "accel_y_g", "type": "STRING"},
+          {"qualifierString": "accel_z_g", "type": "STRING"},
+          {"qualifierString": "gyro_x_dps", "type": "STRING"},
+          {"qualifierString": "gyro_y_dps", "type": "STRING"},
+          {"qualifierString": "gyro_z_dps", "type": "STRING"}
+        ]
+      },
+      {
+        "familyId": "vehicle",
+        "columns": [
+          {"qualifierString": "vehicle_speed_kph", "type": "STRING"},
+          {"qualifierString": "engine_rpm", "type": "STRING"},
+          {"qualifierString": "accelerator_pedal_pct", "type": "STRING"},
+          {"qualifierString": "engine_load_pct", "type": "STRING"},
+          {"qualifierString": "engine_torque_pct", "type": "STRING"},
+          {"qualifierString": "fuel_rate_lph", "type": "STRING"},
+          {"qualifierString": "total_fuel_used_l", "type": "STRING"},
+          {"qualifierString": "fuel_level_pct", "type": "STRING"},
+          {"qualifierString": "coolant_temp_c", "type": "STRING"},
+          {"qualifierString": "oil_temp_c", "type": "STRING"},
+          {"qualifierString": "oil_pressure_kpa", "type": "STRING"},
+          {"qualifierString": "intake_manifold_pressure_kpa", "type": "STRING"},
+          {"qualifierString": "battery_voltage_v", "type": "STRING"},
+          {"qualifierString": "engine_hours", "type": "STRING"},
+          {"qualifierString": "odometer_km", "type": "STRING"},
+          {"qualifierString": "gear_selected", "type": "STRING"},
+          {"qualifierString": "brake_switch", "type": "STRING"},
+          {"qualifierString": "clutch_switch", "type": "STRING"},
+          {"qualifierString": "pto_status", "type": "STRING"},
+          {"qualifierString": "active_dtc_count", "type": "STRING"}
+        ]
+      },
+      {
+        "familyId": "device",
+        "columns": [
+          {"qualifierString": "ignition_status", "type": "STRING"},
+          {"qualifierString": "external_power_v", "type": "STRING"},
+          {"qualifierString": "backup_battery_v", "type": "STRING"},
+          {"qualifierString": "device_temp_c", "type": "STRING"},
+          {"qualifierString": "gsm_signal_dbm", "type": "STRING"},
+          {"qualifierString": "network_type", "type": "STRING"},
+          {"qualifierString": "gnss_fix_status", "type": "STRING"},
+          {"qualifierString": "can_bus_health", "type": "STRING"},
+          {"qualifierString": "storage_queue_depth", "type": "STRING"},
+          {"qualifierString": "tamper_alert", "type": "STRING"},
+          {"qualifierString": "device_id", "type": "STRING"},
+          {"qualifierString": "customer_id", "type": "STRING"},
+          {"qualifierString": "vehicle_id", "type": "STRING"},
+          {"qualifierString": "event_ts", "type": "STRING"}
+        ]
+      },
+      {
+        "familyId": "metadata",
+        "columns": [
+          {"qualifierString": "pubsub_message_id", "type": "STRING"},
+          {"qualifierString": "attr_customer_id", "type": "STRING"},
+          {"qualifierString": "attr_vehicle_id", "type": "STRING"},
+          {"qualifierString": "attr_device_id", "type": "STRING"}
+        ]
+      }
+    ]
+  }
+}
